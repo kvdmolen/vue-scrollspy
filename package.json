@@ -1,0 +1,26 @@
+{
+  "name": "vue-scrollspy",
+  "version": "0.0.1",
+  "description": "Scrollspy for Vue.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kvdmolen/vue-scrollspy"
+  },
+  "keywords": [
+    "scrollspy",
+    "scroll",
+    "mixin",
+    "vuejs",
+    "vue"
+  ],
+  "author": "kvdmolen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kvdmolen/vue-scrollspy/issues"
+  },
+  "homepage": "https://github.com/kvdmolen/vue-scrollspy"
+}
