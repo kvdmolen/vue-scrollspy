@@ -17,9 +17,10 @@
                 var current = this.el.scrollTop
                 var target = this.scrollSections[id]
                 var gap = target - current
-                var timems = parseInt(parseInt(this.params.time) / parseInt(this.params.steps))
-                var steps = this.params.steps
+                var time = parseInt(this.params.time) || 1
+                var steps = parseInt(this.params.steps) || 1
                 var el = this.el
+                var timems = parseInt(time/steps)
 
                 for(var i = 1; i <= steps; i++){
                     (function(){

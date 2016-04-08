@@ -1,5 +1,7 @@
 # vue-scrollspy
 
+Scrollspy, and animated scroller for VueJS
+
 ## Installation
 
 ```
@@ -34,6 +36,11 @@ Vue.use(Scrollspy)
 </div>
 ```
 
+- `time` in milliseconds.
+- `steps` is animation resolution. More steps is smoother.
+
+For non-animated scroll, simply omit these parameters.
+
 When the DOM is ready, or when the content has changed, call `$scrollSet()`:
 
 ```js
@@ -43,3 +50,11 @@ new Vue({
     }
 })
 ```
+
+
+## TODO
+
+- Add bezier animations
+- Add `innerHTML` watcher
+
+(If anybody knows how to watch `innerHTML` please let me know.)
