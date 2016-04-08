@@ -6,7 +6,7 @@
 
         Vue.directive('scrollspy', {
             params: ["steps","time"],
-            scrollSections: [0],
+            scrollSections: [],
             scroll: function(){
                 var pos = this.el.scrollTop
                 var i = 0
@@ -16,20 +16,25 @@
             scrollTo: function(id){
                 var current = this.el.scrollTop
                 var target = this.scrollSections[id]
-                var gap = target - current
-                var time = parseInt(this.params.time) || 1
-                var steps = parseInt(this.params.steps) || 1
+                var time = parseInt(this.params.time) || 0
+                var steps = parseInt(this.params.steps) || 0
                 var el = this.el
-                var timems = parseInt(time/steps)
 
-                for(var i = 1; i <= steps; i++){
-                    (function(){
-                        var pos = current + (gap/steps)*i;
-                        setTimeout(function(){el.scrollTop = pos}, timems*i)
-                    })();
+                if(!steps){
+                    el.scrollTop = target
+                }else{
+                    var timems = parseInt(time/steps)
+                    var gap = target - current
+                    for(var i = 0; i <= steps; i++){
+                        (function(){
+                            var pos = current + (gap/steps)*i;
+                            setTimeout(function(){el.scrollTop = pos}, timems*i)
+                        })();
+                    }
                 }
             },
             init: function(){
+                this.scrollSections = [0]
                 var sections = this.el.children
                 for (var i = 0; i < sections.length; i++){
                     if(sections[i].offsetTop > 0){
