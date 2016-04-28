@@ -3,13 +3,17 @@
     vueScrollspy.install = function (Vue) {
 
         Vue.directive('scrollspy', {
-            params: ["steps","time"],
+            twoWay: true,
+            params: {
+                steps: {type: Number, required: false, default: 0},
+                time: {type: Number, required: false, default: 0}
+            },
             scrollSections: [],
             scroll: function(){
                 var pos = this.el.scrollTop
                 var i = 0
                 while(pos >= this.scrollSections[i]){i++}
-                this.vm.$set("$scrollPos",i ? i - 1 : 0)
+                this.set(i ? i - 1 : 0)
             },
             scrollTo: function(id){
                 var current = this.el.scrollTop
@@ -41,16 +45,13 @@
                 }
             },
             bind: function(){
-                this.vm.$set("$scrollPos", 0)
-
                 this.el.addEventListener('scroll', this.scroll.bind(this))
-
-                Vue.prototype.$scrollPos = 0
-                Vue.prototype.$scrollTo = this.scrollTo.bind(this)
                 Vue.prototype.$scrollSet = this.init.bind(this)
-
             },
-            update: function(data) {
+            update: function(oldVar, newVar) {
+                if(oldVar != newVar){
+                    this.scrollTo(newVar)
+                }
             },
             unbind: function() {
                 this.el.removeEventListener('scroll', scroll)
