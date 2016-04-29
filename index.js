@@ -48,7 +48,7 @@
                 this.el.addEventListener('scroll', this.scroll.bind(this))
                 Vue.prototype.$scrollSet = this.init.bind(this)
             },
-            update: function(oldVar, newVar) {
+            update: function(newVar, oldVar) {
                 if(oldVar != newVar){
                     this.scrollTo(newVar)
                 }
