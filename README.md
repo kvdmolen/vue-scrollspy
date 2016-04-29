@@ -1,6 +1,6 @@
 # vue-scrollspy
 
-Scrollspy, and animated scroller for VueJS
+Scrollspy, and animated scrolt-to, for VueJS
 
 ## Installation
 
@@ -18,13 +18,19 @@ Vue.use(Scrollspy)
 
 ## Usage
 
+HTML:
+
 ```html
 <ul>
-    <li :class="{active:myScrollPosition == 0}"><a @click="myScrollPosition = 0">Menu 1</a></li>
-    <li :class="{active:myScrollPosition == 1}"><a @click="myScrollPosition = 1">Menu 2</a></li>
+    <li :class="{active:scrollPos == 0}">
+        <a @click="scrollPos = 0">Menu 1</a>
+    </li>
+    <li :class="{active:scrollPos == 1}">
+        <a @click="scrollPos = 1">Menu 2</a>
+    </li>
 </ul>
 
-<div v-scrollspy="myScrollPosition" :steps="30" :time="200">
+<div v-scrollspy="scrollPos" :steps="30" :time="200">
     <div>
         <h1>Header 1</h1>
         <p>Content</p>
@@ -40,10 +46,8 @@ Javascript:
 
 ```js
 new Vue({
-    data: function(){
-        return {
-            myScrollPosition: 0
-        }
+    data: {
+        scrollPos: 0
     },
     ready: function(){
         this.$scrollSet()
@@ -51,13 +55,17 @@ new Vue({
 })
 ```
 
-- `time` in milliseconds.
-- `steps` is animation resolution. More steps is smoother.
+Using the directive creates the global function `$scrollSet()`. Call this when the DOM is ready, or when the DOM has changed.
 
-For non-animated scroll, simply omit these parameters.
+## Animated Scroll
 
-When the DOM is ready, or when the content has changed, call `$scrollSet()`:
+For animated scroll, use as follows:
 
+```html
+<div v-scrollspy="scrollPos" :steps="30" :time="200">
+```
+
+`time` in milliseconds, `steps` is animation resolution (more steps results in a smoother animation). For non-animated scroll, simply omit these parameters.
 
 ## TODO
 
