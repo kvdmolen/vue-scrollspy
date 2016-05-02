@@ -4,10 +4,11 @@
 
         Vue.directive('scrollspy', {
             twoWay: true,
-            params: {
-                steps: {type: Number, required: false, default: 0},
-                time: {type: Number, required: false, default: 0}
-            },
+            params: ["steps", "time"],
+            // {
+            //     steps: {type: Number, required: false, default: 0},
+            //     time: {type: Number, required: false, default: 0}
+            // },
             scrollSections: [],
             scroll: function(){
                 var pos = this.el.scrollTop
