@@ -23,10 +23,10 @@ HTML:
 ```html
 <ul>
     <li :class="{active:scrollPos == 0}">
-        <a @click="scrollPos = 0">Menu 1</a>
+        <a @click="$scrollTo(0)">Menu 1</a>
     </li>
     <li :class="{active:scrollPos == 1}">
-        <a @click="scrollPos = 1">Menu 2</a>
+        <a @click="$scrollTo(1)">Menu 2</a>
     </li>
 </ul>
 

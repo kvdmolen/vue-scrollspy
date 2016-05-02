@@ -48,11 +48,12 @@
             bind: function(){
                 this.el.addEventListener('scroll', this.scroll.bind(this))
                 Vue.prototype.$scrollSet = this.init.bind(this)
+                Vue.prototype.$scrollTo = this.scrollTo.bind(this)
             },
             update: function(newVar, oldVar) {
-                if(oldVar != newVar){
-                    this.scrollTo(newVar)
-                }
+                // if(oldVar != newVar){
+                //     this.scrollTo(newVar)
+                // }
             },
             unbind: function() {
                 this.el.removeEventListener('scroll', scroll)
