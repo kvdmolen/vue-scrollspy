@@ -30,7 +30,7 @@ HTML:
     </li>
 </ul>
 
-<div v-scrollspy="scrollPos" :steps="30" :time="200">
+<div v-scrollspy="scrollPos" :offset='10' :steps="30" :time="200">
     <div>
         <h1>Header 1</h1>
         <p>Content</p>
@@ -66,6 +66,16 @@ For animated scroll, use as follows:
 ```
 
 `time` in milliseconds, `steps` is animation resolution (more steps results in a smoother animation). For non-animated scroll, simply omit these parameters.
+
+## Offset
+
+For offset use as follows:
+
+```html
+<div v-scrollspy="scrollPos" :offset="10">
+```
+
+`offset` in pixels
 
 ## TODO
 
