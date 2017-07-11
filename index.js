@@ -37,7 +37,7 @@
 			},
 			scrollTo: function(id){
 				var current = this.el.scrollTop
-				var targetID = this.scrollSections.findIndex((ob) => {
+				var targetID = this.scrollSections.findIndex(function (ob){
 					return Object.keys(ob)[0].toString() === id.toString()
 				})
 				if (targetID > -1) {
@@ -78,17 +78,18 @@
 				}
 
 				var classSections = document.querySelectorAll('.scrollspy-anchor')
-				classSections.forEach((el, index) => {
+				var vm = this
+				classSections.forEach(function(el, index) {
 					var id = el.getAttribute('id')
 					var ob = {}
 					ob[id] = el.offsetTop
-					this.scrollSections.push(ob)
+					vm.scrollSections.push(ob)
 				})
 
 				this.sortSections()
 			},
 			sortSections: function () {
-				this.scrollSections.sort((a, b) => {
+				this.scrollSections.sort(function (a, b) {
 					return a[Object.keys(a)[0]] - b[Object.keys(b)[0]]
 				})
 			},
