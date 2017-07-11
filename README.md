@@ -77,6 +77,42 @@ For offset use as follows:
 
 `offset` in pixels
 
+## id
+
+To target an element by id instead of as a child of the parent. Make sure it has an id and class `scrollspy-anchor`. other children work normally:
+
+```html
+    <ul>
+        <li :class="{active:scrollPos == 0}">
+            <a @click="$scrollTo(0)">Menu 1</a>
+        </li>
+        <li :class="{active:scrollPos == 1}">
+            <a @click="$scrollTo(1)">Menu 2</a>
+        </li>
+        <li :class="{active:scrollPos == 'example-id'}">
+            <a @click="$scrollTo('example-id')">Special Target</a>
+        </li>
+        <li :class="{active:scrollPos == 2}">
+            <a @click="$scrollTo(2)">Menu 3</a>
+        </li>
+    </ul>
+    <div v-scrollspy="scrollPos" :offset='10' :steps="30" :time="200">
+        <div>
+            <h1>Header 1</h1>
+            <p >Content</p>
+        </div>        
+        <div>
+            <h1>Header 2</h1>
+            <p>Content</p>
+        </div>      
+        <div>
+            <h1>Header 3</h1>
+            <p>Content</p>
+            <h1 class='scrollspy-anchor' id='example-id'>Special Target</h1>
+        </div>
+    </div>
+```
+
 ## TODO
 
 - Add bezier animations
